@@ -10,4 +10,16 @@ export default defineConfig({
       'Cross-Origin-Embedder-Policy': 'require-corp',
     },
   },
+  optimizeDeps: {
+    include: [
+      'react-icons/fa',
+      'react-icons/bi',
+      'react-icons/md'
+    ]
+  },
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  }
 });

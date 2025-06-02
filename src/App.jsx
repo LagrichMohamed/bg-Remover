@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 import BackgroundRemover from "./components/BackgroundRemover";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const App = () => {
     return (
-        <div className="app bg-orange-400 min-h-screen">
-            <h1 className="text-3xl font-bold text-center py-6">Background Remover</h1>
-            <BackgroundRemover />
-        </div>
-    )
-}
+        <ThemeProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/try" element={<BackgroundRemover />} />
+                </Routes>
+            </Router>
+        </ThemeProvider>
+    );
+};
+
 export default App;
